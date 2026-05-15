@@ -22,10 +22,16 @@ import Header from '../components/Header.astro';
             <div class="check">✓ Kein anonymes Ankaufportal</div>
           </div>
         </div>
-        <div class="media-card">
-          <div class="media-placeholder">
-            <strong>Hier kommt das echte Ladenbild rein</strong><br />
-            Retro, Regale, Kisten, Steine – lieber authentisch als steril.
+        <div class="media-card" aria-label="Illustration einer LEGO Sammlung im Laden">
+          <div class="hero-illustration">
+            <div class="shelf one"></div>
+            <div class="box red">Sets</div>
+            <div class="box blue">DUPLO</div>
+            <div class="box yellow">Figuren</div>
+            <div class="crate"></div>
+            <div class="brick a"></div>
+            <div class="brick b"></div>
+            <div class="brick c"></div>
           </div>
         </div>
       </div>
@@ -129,6 +135,7 @@ import Header from '../components/Header.astro';
         <form class="form" id="ankaufForm" method="post" action="/api/submit.php">
           <div class="row"><div><label for="name">Name</label><input id="name" name="name" required /></div><div><label for="email">E-Mail</label><input id="email" type="email" name="email" required /></div></div>
           <div class="row"><div><label for="telefon">Telefon optional</label><input id="telefon" name="telefon" /></div><div><label for="auszahlung">Auszahlung</label><select id="auszahlung" name="auszahlung"><option>PayPal</option><option>Banküberweisung</option><option>Noch offen</option></select></div></div>
+          <div class="row"><div><label for="paypal">PayPal-Adresse optional</label><input id="paypal" name="paypal" /></div><div><label for="iban">IBAN optional</label><input id="iban" name="iban" /></div></div>
           <label for="kategorie">Was möchtest du verkaufen?</label><select id="kategorie" name="kategorie"><option>LEGO Kiloware</option><option>DUPLO</option><option>Sets / Sammlung</option><option>Minifiguren</option><option>Bauanleitungen / Kartons</option><option>Gemischt</option></select>
           <label for="beschreibung">Beschreibung</label><textarea id="beschreibung" name="beschreibung" placeholder="z. B. 4 große Kartons, gemischte Steine, einige Sets, Bauanleitungen vorhanden"></textarea>
           <label for="uebergabe">Versand oder Abgabe?</label><select id="uebergabe" name="uebergabe"><option>Versand</option><option>Ladenabgabe</option><option>Noch offen</option></select>
@@ -161,16 +168,20 @@ import Header from '../components/Header.astro';
   <div class="print-sheet" id="printSheet">
     <h1>STEINE-ANKAUF.de – Paket-Begleitschein</h1>
     <p>Bitte diesen Zettel ausdrucken, unterschreiben und oben in das Paket legen.</p>
+    <p><strong>Vorgangsnummer:</strong> <span id="caseId">SA-PREVIEW</span></p>
     <div class="print-grid">
       <div class="print-box"><strong>Name:</strong> <span data-out="name"></span></div>
       <div class="print-box"><strong>E-Mail:</strong> <span data-out="email"></span></div>
       <div class="print-box"><strong>Telefon:</strong> <span data-out="telefon"></span></div>
       <div class="print-box"><strong>Auszahlung:</strong> <span data-out="auszahlung"></span></div>
+      <div class="print-box"><strong>PayPal:</strong> <span data-out="paypal"></span></div>
+      <div class="print-box"><strong>IBAN:</strong> <span data-out="iban"></span></div>
       <div class="print-box"><strong>Kategorie:</strong> <span data-out="kategorie"></span></div>
       <div class="print-box"><strong>Übergabe:</strong> <span data-out="uebergabe"></span></div>
     </div>
     <div class="print-box print-description"><strong>Beschreibung:</strong><br /><span data-out="beschreibung"></span></div>
     <p><strong>Empfänger:</strong><br />STEINE-ANKAUF.de · Pierre-Pascal Hauer · Im Winkel 4 · 51399 Burscheid · Deutschland</p>
+    <p>Mit meiner Unterschrift bestätige ich, dass ich mindestens 18 Jahre alt bin und die Ankaufbedingungen gelesen habe.</p>
     <p>Ort/Datum: ____________________________ Unterschrift: ____________________________</p>
     <hr />
     <p><strong>Intern:</strong> Gewicht: ______ kg · Betrag: ______ € · Ausbezahlt am: __________</p>
@@ -180,6 +191,9 @@ import Header from '../components/Header.astro';
     const form = document.querySelector('#ankaufForm');
     const fillPrint = () => {
       const data = new FormData(form);
+      const now = new Date();
+      const stamp = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
+      document.querySelector('#caseId').textContent = `SA-${stamp}`;
       document.querySelectorAll('[data-out]').forEach((el) => {
         el.textContent = data.get(el.dataset.out) || '';
       });
