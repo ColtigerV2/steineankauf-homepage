@@ -1,6 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'STEINE-ANKAUF.de',
+  description: 'Ankauf von LEGO, DUPLO, Kiloware, Sets und Sammlungen per Versand oder Ladenabgabe.',
+  url: 'https://www.steine-ankauf.de',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Im Winkel 4',
+    postalCode: '51399',
+    addressLocality: 'Burscheid',
+    addressCountry: 'DE'
+  },
+  founder: 'Pierre-Pascal Hauer',
+  areaServed: 'Deutschland'
+};
 ---
 <BaseLayout title="LEGO verkaufen | Steine-Ankauf.de" description="LEGO, DUPLO und Klemmbausteine verkaufen: online anmelden, Begleitschein drucken, einsenden oder im Laden abgeben.">
   <Header />
@@ -163,6 +179,17 @@ import Header from '../components/Header.astro';
       </div>
     </section>
 
+    <section class="final-cta">
+      <div class="container final-cta-box">
+        <div>
+          <span class="eyebrow">Bereit zum Verpacken?</span>
+          <h2>Starte jetzt deinen LEGO® Ankauf.</h2>
+          <p>Wenn du unsicher bist, beschreibe die Sammlung einfach grob. Den Rest klären wir persönlich.</p>
+        </div>
+        <a class="btn btn-primary" href="#formular">Anfrage ausfüllen</a>
+      </div>
+    </section>
+
     <section id="faq" class="faq">
       <div class="container">
         <div class="section-head"><h2>Häufige Fragen</h2><p class="muted">Kurz, klar, ohne Kleingedruckt-Gefühl.</p></div>
@@ -176,10 +203,26 @@ import Header from '../components/Header.astro';
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="logo"><span class="red">STEINE</span><span>-</span><span class="blue">ANKAUF</span><span>.de</span></div>
-      <p class="muted">LEGO® ist eine Marke der LEGO Gruppe. Diese Website wird nicht von der LEGO Gruppe gesponsert, autorisiert oder unterstützt.</p>
-      <p><a href="impressum/">Impressum</a> · <a href="datenschutz/">Datenschutz</a></p>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo"><span class="red">STEINE</span><span>-</span><span class="blue">ANKAUF</span><span>.de</span></div>
+        <p class="muted">LEGO® & DUPLO® verkaufen – per Versand oder Ladenabgabe in Burscheid.</p>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <p>STEINE-ANKAUF.de<br />Pierre-Pascal Hauer<br />Im Winkel 4<br />51399 Burscheid</p>
+      </div>
+      <div>
+        <h3>Navigation</h3>
+        <p><a href="#ablauf">Ablauf</a><br /><a href="#preise">Preise</a><br /><a href="#formular">Ankauf starten</a><br /><a href="#faq">FAQ</a></p>
+      </div>
+      <div>
+        <h3>Rechtliches</h3>
+        <p><a href="impressum/">Impressum</a><br /><a href="datenschutz/">Datenschutz</a></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>LEGO® ist eine Marke der LEGO Gruppe. Diese Website wird nicht von der LEGO Gruppe gesponsert, autorisiert oder unterstützt.</p>
     </div>
   </footer>
 
@@ -215,6 +258,7 @@ import Header from '../components/Header.astro';
     <p><strong>Intern:</strong> Gewicht: ______ kg · Betrag: ______ € · geprüft von: ______ · Ausbezahlt am: __________</p>
   </div>
 
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
   <script>
     const form = document.querySelector('#ankaufForm');
     const fillPrint = () => {
