@@ -113,16 +113,24 @@ textarea { min-height: 130px; resize: vertical; }
 .notice { background: #e9f2ff; border: 3px solid var(--ink); border-radius: 18px; padding: 16px; box-shadow: 5px 5px 0 var(--ink); }
 .checkline { display: flex; align-items: flex-start; gap: 10px; font-weight: 850; background: #fff5d5; border: 3px solid var(--ink); border-radius: 16px; padding: 12px; }
 .checkline input { width: auto; margin-top: 6px; }
+.final-cta { background: var(--paper); }
+.final-cta-box { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; background: white; border: 4px solid var(--ink); border-radius: 30px; padding: clamp(24px, 4vw, 42px); box-shadow: 10px 10px 0 var(--red-dark); }
+.final-cta-box p { margin-bottom: 0; color: var(--muted); font-size: 1.12rem; }
 .faq details { background: white; border: 3px solid var(--ink); border-radius: 18px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 5px 5px 0 rgba(22,24,29,.95); }
 .faq summary { cursor: pointer; font-weight: 950; }
-.footer { background: #101217; color: white; padding: 50px 0; border-top: 6px solid var(--red); }
+.footer { background: #101217; color: white; padding: 50px 0 28px; border-top: 6px solid var(--red); }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 28px; align-items: start; }
+.footer h3 { color: white; margin-bottom: 10px; }
+.footer p { color: rgba(255,255,255,.75); }
 .footer a { color: white; opacity: .9; }
+.footer .logo span:last-child { color: white; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.16); margin-top: 28px; padding-top: 18px; font-size: .92rem; }
 .print-sheet { display: none; }
 .print-description { margin-top: 12px; min-height: 100px; }
 @media (max-width: 860px) {
   .navlinks { display: none; }
   .hero { padding-top: 54px; }
-  .hero-grid, .band, .form-wrap, .price-grid, .rules-grid, .social-grid { grid-template-columns: 1fr; }
+  .hero-grid, .band, .form-wrap, .price-grid, .rules-grid, .social-grid, .final-cta-box, .footer-grid { grid-template-columns: 1fr; }
   .grid-4, .grid-3, .rules-list, .mini-wall { grid-template-columns: 1fr; }
   .checks, .row { grid-template-columns: 1fr; }
   h1 { font-size: clamp(2.4rem, 14vw, 4.2rem); }
