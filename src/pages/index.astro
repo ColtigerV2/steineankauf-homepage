@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+---
+<BaseLayout title="LEGO verkaufen | Steine-Ankauf.de" description="LEGO, DUPLO und Klemmbausteine verkaufen: online anmelden, Begleitschein drucken, einsenden oder im Laden abgeben.">
+  <Header />
+  <main id="top">
+    <section class="hero brick-bg">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Ankauf per Versand oder Ladenabgabe</span>
+          <h1>LEGO® & DUPLO® verkaufen – schnell, fair und unkompliziert.</h1>
+          <p class="lead">Ob Kinderzimmersammlung, Kiloware, Sets, Bauanleitungen oder Kartons: Wir machen den Verkauf einfach. Online anmelden, Begleitschein ausdrucken, Paket beilegen – fertig.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#formular">Ankauf starten</a>
+            <a class="btn btn-secondary" href="#ablauf">So funktioniert's</a>
+          </div>
+          <div class="checks" aria-label="Vorteile">
+            <div class="check">✓ Festpreis-Orientierung</div>
+            <div class="check">✓ Echter Laden in Burscheid</div>
+            <div class="check">✓ Schnelle Bearbeitung</div>
+            <div class="check">✓ Persönlicher Kontakt</div>
+          </div>
+        </div>
+        <div class="media-card">
+          <div class="media-placeholder">
+            <strong>Bestandsbild vom Laden einsetzen</strong><br />
+            Vorschlag aus Dropbox: <code>laden.jpg</code>, <code>laden2.jpg</code>, <code>laden3.jpg</code> oder neues Foto.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ablauf">
+      <div class="container">
+        <div class="section-head">
+          <h2>In 4 Schritten verkauft</h2>
+          <p class="muted">Der Papierzettel bleibt – aber als moderner Paket-Begleitschein.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card"><div class="step-number">1</div><h3>Ware grob beschreiben</h3><p>Was ist dabei? Kiloware, Sets, DUPLO, Figuren, Bauanleitungen oder Kartons.</p></article>
+          <article class="card"><div class="step-number">2</div><h3>Online anmelden</h3><p>Kontaktdaten und kurze Beschreibung eintragen. Fotos helfen bei größeren Sammlungen.</p></article>
+          <article class="card"><div class="step-number">3</div><h3>Begleitschein drucken</h3><p>Der Zettel kommt oben ins Paket. So kann Pierre die Ware sofort zuordnen.</p></article>
+          <article class="card"><div class="step-number">4</div><h3>Auszahlung erhalten</h3><p>Nach Prüfung erfolgt die Auszahlung per PayPal oder Banküberweisung.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ankauf" class="white-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Was kaufen wir an?</h2>
+          <p class="muted">Alles rund um die bunten Steine – sauber, vollständig oder als gemischte Sammlung.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card category"><h3>LEGO® Kiloware</h3><p>Gemischte Steine aus Kinderzimmer, Keller oder Dachboden.</p></article>
+          <article class="card category"><h3>DUPLO®</h3><p>Große Steine, Sets, Figuren, Schienen und Zubehör.</p></article>
+          <article class="card category"><h3>Sets & Sammlungen</h3><p>Aufgebaut, zerlegt, mit oder ohne Karton – gerne mit Bauanleitung.</p></article>
+          <article class="card category"><h3>Minifiguren</h3><p>Figuren, Zubehör, Themenwelten und besondere Einzelteile.</p></article>
+          <article class="card category"><h3>Technic & Spezialteile</h3><p>Technic, Platten, Räder, Schienen, Container und sortierte Bestände.</p></article>
+          <article class="card category"><h3>Bauanleitungen & Kartons</h3><p>Auch Papier, Boxen und Anleitungen können relevant sein.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="laden">
+      <div class="container band">
+        <div>
+          <h2>Echter Laden. Echter Ansprechpartner.</h2>
+          <p>Steine-Ankauf ist kein anonymes Portal. Hinter der Seite steht ein Laden in Burscheid und ein Team, das sich täglich mit LEGO®, gebrauchten Sets und Sammlungen beschäftigt.</p>
+          <p><strong>Adresse:</strong><br />STEINE-ANKAUF.de<br />Pierre-Pascal Hauer<br />Im Winkel 4<br />51399 Burscheid</p>
+        </div>
+        <div class="card">
+          <h3>Warum das wichtig ist</h3>
+          <p>Viele Verkäufer möchten wissen, wohin ihre Sammlung geht. Genau hier punktet die Seite: persönlich, greifbar, lokal und transparent.</p>
+          <a class="btn btn-primary" href="#formular">Anfrage starten</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="formular" class="white-section">
+      <div class="container form-wrap">
+        <div>
+          <h2>Ankauf starten</h2>
+          <p class="lead">Fülle die Anfrage aus. Danach kannst du direkt einen Begleitschein für dein Paket drucken.</p>
+          <div class="notice"><strong>Preview-Hinweis:</strong> Auf GitHub Pages läuft das Formular im Demo-Modus. Für all-inkl liegt ein PHP-Mailhandler unter <code>/public/api/submit.php</code> bei.</div>
+        </div>
+        <form class="form" id="ankaufForm" method="post" action="/api/submit.php">
+          <div class="row"><div><label for="name">Name</label><input id="name" name="name" required /></div><div><label for="email">E-Mail</label><input id="email" type="email" name="email" required /></div></div>
+          <div class="row"><div><label for="telefon">Telefon optional</label><input id="telefon" name="telefon" /></div><div><label for="auszahlung">Auszahlung</label><select id="auszahlung" name="auszahlung"><option>PayPal</option><option>Banküberweisung</option><option>Noch offen</option></select></div></div>
+          <label for="kategorie">Was möchtest du verkaufen?</label><select id="kategorie" name="kategorie"><option>LEGO Kiloware</option><option>DUPLO</option><option>Sets / Sammlung</option><option>Minifiguren</option><option>Bauanleitungen / Kartons</option><option>Gemischt</option></select>
+          <label for="beschreibung">Beschreibung</label><textarea id="beschreibung" name="beschreibung" placeholder="z. B. 4 große Kartons, gemischte Steine, einige Sets, Bauanleitungen vorhanden"></textarea>
+          <label for="uebergabe">Versand oder Abgabe?</label><select id="uebergabe" name="uebergabe"><option>Versand</option><option>Ladenabgabe</option><option>Noch offen</option></select>
+          <label class="checkline"><input type="checkbox" required /> Ich bin mindestens 18 Jahre alt und akzeptiere die Ankaufbedingungen.</label>
+          <div class="hero-actions"><button class="btn btn-primary" type="submit">Anfrage vorbereiten</button><button class="btn btn-secondary" type="button" id="printSlip">Begleitschein drucken</button></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="section-head"><h2>Häufige Fragen</h2><p class="muted">Kurz, klar, ohne Kleingedruckt-Gefühl.</p></div>
+        <details open><summary>Muss das LEGO sortiert sein?</summary><p>Nein. Es muss nicht gewaschen oder sortiert sein, sollte aber sauber und frei von Fremdteilen sein.</p></details>
+        <details><summary>Müssen aufgebaute Sets zerlegt werden?</summary><p>Nein. Aufgebaute Sachen müssen nicht extra auseinandergenommen werden.</p></details>
+        <details><summary>Wie soll ich die Ware versenden?</summary><p>Am besten in wenige größere Kartons packen. Den ausgedruckten Begleitschein bitte oben ins Paket legen.</p></details>
+        <details><summary>Kann ich auch persönlich abgeben?</summary><p>Ja, eine Abgabe im Laden bzw. nach Absprache ist möglich.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="logo"><span class="red">STEINE</span><span>-</span><span class="blue">ANKAUF</span><span>.de</span></div>
+      <p class="muted">LEGO® ist eine Marke der LEGO Gruppe. Diese Website wird nicht von der LEGO Gruppe gesponsert, autorisiert oder unterstützt.</p>
+      <p><a href="impressum/">Impressum</a> · <a href="datenschutz/">Datenschutz</a></p>
+    </div>
+  </footer>
+
+  <div class="print-sheet" id="printSheet">
+    <h1>STEINE-ANKAUF.de – Paket-Begleitschein</h1>
+    <p>Bitte diesen Zettel ausdrucken, unterschreiben und oben in das Paket legen.</p>
+    <div class="print-grid">
+      <div class="print-box"><strong>Name:</strong> <span data-out="name"></span></div>
+      <div class="print-box"><strong>E-Mail:</strong> <span data-out="email"></span></div>
+      <div class="print-box"><strong>Telefon:</strong> <span data-out="telefon"></span></div>
+      <div class="print-box"><strong>Auszahlung:</strong> <span data-out="auszahlung"></span></div>
+      <div class="print-box"><strong>Kategorie:</strong> <span data-out="kategorie"></span></div>
+      <div class="print-box"><strong>Übergabe:</strong> <span data-out="uebergabe"></span></div>
+    </div>
+    <div class="print-box print-description"><strong>Beschreibung:</strong><br /><span data-out="beschreibung"></span></div>
+    <p><strong>Empfänger:</strong><br />STEINE-ANKAUF.de · Pierre-Pascal Hauer · Im Winkel 4 · 51399 Burscheid · Deutschland</p>
+    <p>Ort/Datum: ____________________________ Unterschrift: ____________________________</p>
+    <hr />
+    <p><strong>Intern:</strong> Gewicht: ______ kg · Betrag: ______ € · Ausbezahlt am: __________</p>
+  </div>
+
+  <script>
+    const form = document.querySelector('#ankaufForm');
+    const fillPrint = () => {
+      const data = new FormData(form);
+      document.querySelectorAll('[data-out]').forEach((el) => {
+        el.textContent = data.get(el.dataset.out) || '';
+      });
+    };
+    document.querySelector('#printSlip').addEventListener('click', () => {
+      fillPrint();
+      window.print();
+    });
+    form.addEventListener('submit', (event) => {
+      if (location.hostname.includes('github.io') || location.hostname === 'localhost') {
+        event.preventDefault();
+        fillPrint();
+        alert('Demo: Anfrage vorbereitet. Auf all-inkl wird daraus eine E-Mail an Pierre.');
+      }
+    });
+  </script>
+</BaseLayout>
