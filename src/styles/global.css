@@ -69,8 +69,30 @@ h3 { margin-top: 0; font-size: 1.35rem; line-height: 1.08; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .category { min-height: 170px; position: relative; overflow: hidden; background: linear-gradient(180deg, #fff, #fff9e8); }
 .category:after { content: ""; position: absolute; right: 18px; bottom: 18px; width: 52px; height: 52px; border-radius: 12px; background: var(--yellow); box-shadow: -22px -18px 0 var(--red), -42px 12px 0 var(--blue); opacity: .95; border: 2px solid rgba(22,24,29,.12); }
+.price-section { background: var(--blue); color: white; border-block: 4px solid var(--ink); }
+.price-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 28px; align-items: center; }
+.price-section .lead, .price-section .muted { color: rgba(255,255,255,.86); }
+.price-cards { display: grid; gap: 18px; }
+.price-card { border: 4px solid var(--ink); border-radius: 24px; padding: 24px; box-shadow: 8px 8px 0 var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 18px; color: var(--ink); }
+.price-card strong { font-size: 1.1rem; }
+.price-card span { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1; font-weight: 950; letter-spacing: -.05em; }
+.red-card { background: var(--red); color: white; }
+.blue-card { background: var(--yellow); color: var(--ink); }
+.rules-section { background: var(--paper); }
+.rules-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; align-items: start; }
+.rules-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.rule { background: white; border: 3px solid var(--ink); border-radius: 18px; padding: 16px; font-weight: 850; box-shadow: 5px 5px 0 var(--ink); }
+.rule:before { content: "✓"; display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 8px; border-radius: 8px; background: var(--green); color: white; border: 2px solid var(--ink); font-weight: 950; }
 .band { background: linear-gradient(135deg, #101217, #1d2430); color: white; border-radius: 30px; padding: 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; border: 4px solid var(--ink); box-shadow: 10px 10px 0 var(--red-dark); }
 .band .card { color: var(--ink); background: #fff6d9; }
+.social-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 24px; align-items: center; }
+.social-card { background: #fff0a6; }
+.social-badge { display: inline-flex; margin-bottom: 14px; padding: 8px 10px; border: 3px solid var(--ink); border-radius: 12px; background: var(--red); color: white; font-weight: 950; box-shadow: 4px 4px 0 var(--ink); }
+.mini-wall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.mini-wall div { min-height: 92px; border: 3px solid var(--ink); border-radius: 20px; display: grid; place-items: center; font-weight: 950; box-shadow: 5px 5px 0 var(--ink); }
+.mini-wall div:nth-child(1), .mini-wall div:nth-child(5) { background: var(--red); color: white; }
+.mini-wall div:nth-child(2), .mini-wall div:nth-child(6) { background: var(--blue); color: white; }
+.mini-wall div:nth-child(3), .mini-wall div:nth-child(4) { background: var(--yellow); color: var(--ink); }
 .form-wrap { display: grid; grid-template-columns: 1fr .82fr; gap: 24px; align-items: start; }
 .form { background: white; border: 4px solid var(--ink); border-radius: 28px; padding: 24px; box-shadow: 10px 10px 0 var(--blue-dark); }
 label { font-weight: 900; display: block; margin: 14px 0 6px; }
@@ -90,14 +112,16 @@ textarea { min-height: 130px; resize: vertical; }
 @media (max-width: 860px) {
   .navlinks { display: none; }
   .hero { padding-top: 54px; }
-  .hero-grid, .band, .form-wrap { grid-template-columns: 1fr; }
-  .grid-4, .grid-3 { grid-template-columns: 1fr; }
+  .hero-grid, .band, .form-wrap, .price-grid, .rules-grid, .social-grid { grid-template-columns: 1fr; }
+  .grid-4, .grid-3, .rules-list, .mini-wall { grid-template-columns: 1fr; }
   .checks, .row { grid-template-columns: 1fr; }
   .media-placeholder { min-height: 280px; }
   h1 { font-size: clamp(2.4rem, 14vw, 4.2rem); }
   .section-head { display: block; }
   .card, .grid-4 .card:nth-child(n), .grid-3 .card:nth-child(n) { transform: none; }
   .btn { width: 100%; }
+  .price-card { display: block; }
+  .price-card span { display: block; margin-top: 12px; }
 }
 @media print {
   body > *:not(.print-sheet) { display: none !important; }
