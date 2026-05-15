@@ -1,16 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 170" role="img" aria-labelledby="title desc">
-  <title id="title">Steine-Ankauf.de Logo</title>
-  <desc id="desc">STEINE in Rot und ANKAUF in Blau mit Retro-Brick-Akzenten</desc>
-  <rect x="8" y="8" width="624" height="154" rx="26" fill="#fff8e8" stroke="#16181d" stroke-width="8"/>
-  <g opacity=".95">
-    <rect x="34" y="30" width="62" height="34" rx="9" fill="#ffd447" stroke="#16181d" stroke-width="5"/>
-    <circle cx="50" cy="39" r="5" fill="#fff3a5"/><circle cx="80" cy="39" r="5" fill="#fff3a5"/>
-    <rect x="540" y="108" width="62" height="34" rx="9" fill="#ffd447" stroke="#16181d" stroke-width="5"/>
-    <circle cx="556" cy="117" r="5" fill="#fff3a5"/><circle cx="586" cy="117" r="5" fill="#fff3a5"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg version="1.1" id="svg1" width="793.70074" height="381.7323" viewBox="0 0 793.70074 381.7323" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs1" />
+  <g id="g1">
+    <path id="path1" d="m 45.078,103.27 c 0,4.699 1.172,7.808 3.516,9.328 2.344,1.523 7.57,2.281 15.687,2.281 8.051,0 13.102,-0.649 15.157,-1.953 2.101,-1.301 3.156,-3.93 3.156,-7.891 0,-4 -0.906,-6.476 -2.719,-7.437 -1.805,-0.957 -6.32,-1.5 -13.547,-1.625 C 46.203,95.578 32.863,93.406 26.313,89.457 19.77,85.457 16.5,77.527 16.5,65.66 c 0,-13 3.516,-21.457 10.547,-25.375 7.039,-3.906 19.328,-5.859 36.859,-5.859 18.364,0 30.43,2.023 36.203,6.062 5.758,4.043 8.766,11.434 9.016,22.172 v 4.094 H 80.547 c -0.25,-4.383 -1.305,-7.227 -3.156,-8.531 -1.805,-1.352 -6.078,-2.032 -12.828,-2.032 -7.618,0 -12.524,0.61 -14.719,1.829 -2.199,1.179 -3.297,3.636 -3.297,7.375 0,2.96 0.781,5.109 2.344,6.453 1.613,1.304 5.3,2.086 11.062,2.343 11.914,0.524 22.32,1.305 31.219,2.344 8.937,1.055 14.992,4.602 18.172,10.641 2.195,4.211 3.297,10.621 3.297,19.234 0,10.731 -3.18,18.465 -9.532,23.203 -6.304,4.7 -19.273,7.047 -38.906,7.047 -21.887,0 -35.32,-2.91 -40.297,-8.734 C 18.969,122.094 16.5,113.875 16.5,103.27 Z M 66.844,28.16 Z m -2.641,107.453 z" style="fill:#d01012;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path2" d="m 118.277,35.457 h 88.657 v 23.219 h -29.313 v 76.937 H 147.59 V 58.676 h -29.313 z m 46.75,-7.297 z m -1.765,107.453 z M 118.277,34.426 Z" style="fill:#d01012;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path3" d="M 216.973,135.613 V 35.457 h 81.625 V 57.238 H 247.02 v 18.657 h 48.281 V 94.41 H 247.02 v 19.422 h 52.531 v 21.781 z M 259.395,28.16 Z m 28.078,107.453 z M 207.598,34.426 Z" style="fill:#d01012;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path4" d="m 318.746,35.457 h 30.047 v 100.156 h -30.047 z m 17,-7.297 z m 6.75,107.453 z M 309.371,34.426 Z" style="fill:#d01012;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path5" d="m 367.398,35.457 h 50.641 l 32.594,75.906 V 35.457 H 480.68 V 135.613 H 429.617 L 397.445,60.504 v 75.109 h -30.047 z m 60.157,-7.297 z m -4.391,107.453 z M 358.023,34.426 Z" style="fill:#d01012;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path6" d="M 498.117,135.613 V 35.457 h 81.625 v 21.781 h -51.578 v 18.657 h 48.281 V 94.41 h -48.281 v 19.422 h 52.531 v 21.781 z M 540.539,28.16 Z m 28.078,107.453 z M 488.742,34.426 Z" style="fill:#d01012;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path7" d="M 14.754,249.586 43.598,146.664 h 38.625 l 28.859,102.922 H 85.207 L 80.285,231.898 H 46.082 l -4.656,17.688 z M 51.629,211.727 H 75.191 L 63.129,167.164 Z m 11.312,-72.579 z m 40.985,110.438 z m -87.563,-104 z" style="fill:#8fc2dd;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path8" d="m 117.66,146.664 h 42.985 l 27.671,78 v -78 h 25.485 V 249.586 H 170.457 L 143.16,172.398 v 77.188 h -25.5 z m 51.063,-7.516 z m -3.735,110.438 z m -55.281,-104 z" style="fill:#8fc2dd;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path9" d="m 228.598,146.664 h 25.5 v 38.859 h 6.968 l 25.063,-38.859 h 30.656 l -33.828,50.719 36.625,52.203 h -31.406 l -27.11,-40.203 h -6.968 v 40.203 h -25.5 z m 39.437,102.922 z" style="fill:#8fc2dd;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path10" d="m 314.805,249.586 28.843,-102.922 h 38.625 l 28.86,102.922 h -25.875 l -4.922,-17.688 h -34.203 l -4.656,17.688 z m 36.875,-37.859 h 23.562 L 363.18,167.164 Z m 11.312,-72.579 z m 40.985,110.438 z m -87.563,-104 z" style="fill:#8fc2dd;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path11" d="m 417.711,146.664 h 25.5 v 67.266 c 0,5.636 1.035,9.187 3.109,10.656 2.071,1.48 6.407,2.219 13,2.219 6.219,0 10.282,-0.848 12.188,-2.547 1.945,-1.695 2.922,-5.024 2.922,-9.985 v -67.609 h 25.5 v 68.281 c 0,13.586 -2.946,22.946 -8.828,28.078 -5.844,5.094 -15.961,7.641 -30.344,7.641 -16.18,0 -27.399,-1.988 -33.656,-5.969 -6.262,-4.019 -9.391,-13.535 -9.391,-28.547 z m 41.422,-7.516 z m 5.781,110.438 z m -55.156,-104 z" style="fill:#8fc2dd;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
+    <path id="path12" d="M 515.105,249.586 V 146.664 h 67.282 v 22.375 H 540.59 v 20.641 h 38.625 v 22.375 H 540.59 v 37.531 z" style="fill:#8fc2dd;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="scale(1.3333333)" />
   </g>
-  <text x="118" y="72" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="58" font-weight="900" letter-spacing="-2" fill="#e02d2d" stroke="#16181d" stroke-width="2" paint-order="stroke">STEINE</text>
-  <text x="116" y="132" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="58" font-weight="900" letter-spacing="-2" fill="#1464c8" stroke="#16181d" stroke-width="2" paint-order="stroke">ANKAUF</text>
-  <text x="465" y="132" font-family="Arial Black, Impact, system-ui, sans-serif" font-size="42" font-weight="900" fill="#16181d">.de</text>
-  <path d="M426 38h60v28h-60z" fill="#24a148" stroke="#16181d" stroke-width="5" rx="8"/>
-  <circle cx="442" cy="47" r="4" fill="#94e39f"/><circle cx="470" cy="47" r="4" fill="#94e39f"/>
 </svg>
