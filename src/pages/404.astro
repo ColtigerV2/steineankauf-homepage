@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+---
+<BaseLayout title="Seite nicht gefunden | Steine-Ankauf.de" description="Diese Seite wurde nicht gefunden.">
+  <Header />
+  <main class="thankyou-page">
+    <section class="hero brick-bg">
+      <div class="container thankyou-box">
+        <span class="eyebrow">404</span>
+        <h1>Diese Seite wurde nicht gefunden.</h1>
+        <p class="lead">Vielleicht wurde ein Link geändert oder die Seite existiert nicht mehr. Zurück zur Startseite geht’s hier entlang.</p>
+        <div class="thankyou-card">
+          <h2>Was du jetzt tun kannst</h2>
+          <ol>
+            <li>Zur Startseite wechseln.</li>
+            <li>Den Ankauf-Ablauf ansehen.</li>
+            <li>Direkt eine Ankauf-Anfrage starten.</li>
+          </ol>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/">Zur Startseite</a>
+          <a class="btn btn-secondary" href="/#formular">Ankauf starten</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
