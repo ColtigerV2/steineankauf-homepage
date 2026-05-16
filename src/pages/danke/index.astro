@@ -2,15 +2,34 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 ---
-<BaseLayout title="Danke | Steine-Ankauf.de">
+<BaseLayout title="Danke für deine Anfrage | Steine-Ankauf.de" description="Deine Ankauf-Anfrage wurde vorbereitet. Bitte drucke den Begleitschein und lege ihn oben ins Paket.">
   <Header />
-  <main>
-    <section>
-      <div class="container">
-        <h1>Danke für deine Anfrage!</h1>
-        <p>Bitte drucke den Begleitschein aus und lege ihn deiner Sendung bei. Wir melden uns nach Eingang bzw. Prüfung per E-Mail.</p>
-        <a class="btn btn-primary" href="../">Zurück zur Startseite</a>
+  <main class="thankyou-page">
+    <section class="hero brick-bg">
+      <div class="container thankyou-box">
+        <span class="eyebrow">Anfrage vorbereitet</span>
+        <h1>Danke! Deine Anfrage ist angekommen.</h1>
+        <p class="lead">Bitte drucke den Begleitschein aus und lege ihn oben in dein Paket. So kann Pierre deine Sendung schnell zuordnen.</p>
+        <div class="thankyou-card">
+          <h2>Deine nächsten Schritte</h2>
+          <ol>
+            <li>Begleitschein ausdrucken oder die Vorgangsnummer notieren.</li>
+            <li>LEGO®, DUPLO® oder Sammlung sicher verpacken.</li>
+            <li>Begleitschein oben ins Paket legen.</li>
+            <li>Paket versenden oder nach Absprache im Laden abgeben.</li>
+          </ol>
+          <p class="case-note"><strong>Vorgangsnummer:</strong> <span id="caseOutput">wird geladen …</span></p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/">Zur Startseite</a>
+          <button class="btn btn-secondary" type="button" onclick="window.print()">Diese Seite drucken</button>
+        </div>
       </div>
     </section>
   </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const vorgang = params.get('vorgang');
+    document.querySelector('#caseOutput').textContent = vorgang || 'nicht übermittelt';
+  </script>
 </BaseLayout>
