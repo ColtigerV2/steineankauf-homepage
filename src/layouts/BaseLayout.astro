@@ -14,9 +14,14 @@ const cleanImage = String(image).replace(/^\/+/, '');
 const canonicalUrl = new URL(cleanCanonical, baseUrl).toString();
 const imageUrl = new URL(cleanImage, baseUrl).toString();
 const asset = (path) => `${basePath}${String(path).replace(/^\/+/, '')}`;
+const photoVars = `
+  --photo-steine: url('${asset('assets/photos/steine.jpg')}');
+  --photo-laden: url('${asset('assets/photos/laden.jpg')}');
+  --photo-pierre: url('${asset('assets/photos/pierre.jpeg')}');
+`;
 ---
 <!doctype html>
-<html lang="de">
+<html lang="de" style={photoVars}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
