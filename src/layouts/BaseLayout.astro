@@ -4,7 +4,7 @@ const {
   title = 'Steine-Ankauf.de',
   description = 'LEGO und DUPLO verkaufen: schnell, fair und unkompliziert.',
   canonical = '/',
-  image = '/og-image.png'
+  image = '/og-image.svg'
 } = Astro.props;
 const siteUrl = Astro.site ?? new URL('https://www.steine-ankauf.de');
 const canonicalUrl = new URL(canonical, siteUrl).toString();
@@ -19,6 +19,8 @@ const imageUrl = new URL(image, siteUrl).toString();
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="Steine-Ankauf.de" />
@@ -26,8 +28,9 @@ const imageUrl = new URL(image, siteUrl).toString();
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:type" content="image/svg+xml" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#1464c8" />
+    <meta name="theme-color" content="#f2cd37" />
   </head>
   <body>
     <slot />
