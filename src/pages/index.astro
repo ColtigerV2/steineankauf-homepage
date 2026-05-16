@@ -153,6 +153,10 @@ const localBusinessSchema = {
           <div class="notice"><strong>Preview-Hinweis:</strong> Auf GitHub Pages läuft das Formular im Demo-Modus. Für all-inkl liegt ein PHP-Mailhandler unter <code>/public/api/submit.php</code> bei.</div>
         </div>
         <form class="form" id="ankaufForm" method="post" action="/api/submit.php">
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <fieldset>
             <legend>Kontakt</legend>
             <div class="row"><div><label for="name">Name *</label><input id="name" name="name" autocomplete="name" required /></div><div><label for="email">E-Mail *</label><input id="email" type="email" name="email" autocomplete="email" required /></div></div>
@@ -172,7 +176,7 @@ const localBusinessSchema = {
             <div class="row"><div><label for="uebergabe">Versand oder Abgabe?</label><select id="uebergabe" name="uebergabe"><option>Versand</option><option>Ladenabgabe</option><option>Noch offen</option></select></div><div><label for="pakete">Anzahl Pakete optional</label><input id="pakete" name="pakete" placeholder="z. B. 2" /></div></div>
           </fieldset>
 
-          <label class="checkline"><input type="checkbox" required /> Ich bin mindestens 18 Jahre alt und akzeptiere die Ankaufbedingungen.</label>
+          <label class="checkline"><input type="checkbox" name="agb" value="ja" required /> Ich bin mindestens 18 Jahre alt und akzeptiere die Ankaufbedingungen.</label>
           <div class="hero-actions"><button class="btn btn-primary" type="submit">Anfrage vorbereiten</button><button class="btn btn-secondary" type="button" id="printSlip">Begleitschein drucken</button></div>
           <p class="form-note">Tipp: Für den Versand den Begleitschein nach dem Ausfüllen drucken und oben ins Paket legen.</p>
         </form>
