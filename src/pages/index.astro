@@ -155,9 +155,10 @@ const localBusinessSchema = {
             <div><strong>2.</strong> Begleitschein drucken</div>
             <div><strong>3.</strong> Paket beilegen</div>
           </div>
-          <div class="notice"><strong>Preview-Hinweis:</strong> Auf GitHub Pages läuft das Formular im Demo-Modus. Für all-inkl liegt ein PHP-Mailhandler unter <code>/public/api/submit.php</code> bei.</div>
+          <div class="notice"><strong>Preview-Hinweis:</strong> Auf GitHub Pages wird keine E-Mail gesendet. Du kannst aber Formular und Begleitschein vollständig testen.</div>
         </div>
         <form class="form" id="ankaufForm" method="post" action="/api/submit.php">
+          <input type="hidden" id="caseInput" name="case_id" value="" />
           <div class="honeypot" aria-hidden="true">
             <label for="website">Website</label>
             <input id="website" name="website" tabindex="-1" autocomplete="off" />
@@ -184,6 +185,7 @@ const localBusinessSchema = {
           <label class="checkline"><input type="checkbox" name="agb" value="ja" required /> Ich bin mindestens 18 Jahre alt und akzeptiere die Ankaufbedingungen.</label>
           <div class="hero-actions"><button class="btn btn-primary" type="submit">Anfrage vorbereiten</button><button class="btn btn-secondary" type="button" id="printSlip">Begleitschein drucken</button></div>
           <p class="form-note">Tipp: Für den Versand den Begleitschein nach dem Ausfüllen drucken und oben ins Paket legen.</p>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -270,26 +272,42 @@ const localBusinessSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
   <script>
     const form = document.querySelector('#ankaufForm');
+    const caseInput = document.querySelector('#caseInput');
+    const caseOutput = document.querySelector('#caseId');
+    const formStatus = document.querySelector('#formStatus');
+
+    const makeCaseId = () => {
+      const now = new Date();
+      return `SA-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
+    };
+
+    const ensureCaseId = () => {
+      if (!caseInput.value) caseInput.value = makeCaseId();
+      caseOutput.textContent = caseInput.value;
+      return caseInput.value;
+    };
+
     const fillPrint = () => {
       const data = new FormData(form);
-      const now = new Date();
-      const stamp = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
-      document.querySelector('#caseId').textContent = `SA-${stamp}`;
+      ensureCaseId();
       document.querySelectorAll('[data-out]').forEach((el) => {
         el.textContent = data.get(el.dataset.out) || '—';
       });
     };
+
     document.querySelector('#printSlip').addEventListener('click', () => {
       if (!form.reportValidity()) return;
       fillPrint();
+      formStatus.textContent = `Begleitschein für Vorgang ${caseInput.value} ist vorbereitet.`;
       window.print();
     });
+
     form.addEventListener('submit', (event) => {
+      if (!form.reportValidity()) return;
+      fillPrint();
       if (location.hostname.includes('github.io') || location.hostname === 'localhost') {
         event.preventDefault();
-        if (!form.reportValidity()) return;
-        fillPrint();
-        alert('Demo: Anfrage vorbereitet. Drucke jetzt den Begleitschein und lege ihn dem Paket bei. Auf all-inkl wird daraus eine E-Mail an Pierre.');
+        formStatus.textContent = `Demo: Anfrage ${caseInput.value} vorbereitet. Auf all-inkl wird sie per E-Mail an Pierre gesendet. Drucke jetzt den Begleitschein und lege ihn dem Paket bei.`;
       }
     });
   </script>
