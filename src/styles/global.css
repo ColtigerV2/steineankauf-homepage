@@ -50,7 +50,7 @@ h1 .marker, h2 .marker { color: var(--red); text-shadow: none; }
 .check { background: rgba(255,255,255,.86); border: 3px solid var(--ink); border-radius: 16px; padding: 12px 14px; font-weight: 900; box-shadow: 4px 4px 0 rgba(21,21,21,.95); }
 .check:nth-child(2), .check:nth-child(4) { background: #eef8fd; }
 .check:nth-child(3) { background: #fff0b3; }
-.hero-panel { background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.92)), url("/assets/photos/steine.jpg"); background-size: cover; background-position: center; border: 4px solid var(--ink); border-radius: 28px; padding: clamp(24px, 4vw, 38px); box-shadow: 11px 11px 0 var(--blue); transform: rotate(1deg); position: relative; overflow: hidden; min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end; }
+.hero-panel { background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.92)), url("../assets/photos/steine.jpg"); background-size: cover; background-position: center; border: 4px solid var(--ink); border-radius: 28px; padding: clamp(24px, 4vw, 38px); box-shadow: 11px 11px 0 var(--blue); transform: rotate(1deg); position: relative; overflow: hidden; min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end; }
 .hero-panel:before { content: ""; position: absolute; right: -46px; top: -42px; width: 150px; height: 150px; background: var(--red); border-radius: 32px; opacity: .12; transform: rotate(18deg); }
 .hero-panel:after { content: ""; position: absolute; left: -36px; bottom: -36px; width: 120px; height: 120px; background: var(--blue); border-radius: 28px; opacity: .16; transform: rotate(-12deg); }
 .hero-panel-badge { display: inline-flex; position: relative; z-index: 1; padding: 8px 10px; border-radius: 12px; border: 3px solid var(--ink); background: var(--red); color: white; font-weight: 950; box-shadow: 4px 4px 0 var(--ink); width: fit-content; }
@@ -89,7 +89,7 @@ h3 { margin-top: 0; font-size: 1.35rem; line-height: 1.08; }
 .rules-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .rule { background: white; border: 3px solid var(--ink); border-radius: 18px; padding: 16px; font-weight: 850; box-shadow: 5px 5px 0 var(--ink); }
 .rule:before { content: "✓"; display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 8px; border-radius: 8px; background: var(--blue); color: var(--ink); border: 2px solid var(--ink); font-weight: 950; }
-.band { background: linear-gradient(135deg, rgba(16,18,23,.94), rgba(29,36,48,.78)), url("/assets/photos/laden.jpg"); background-size: cover; background-position: center; color: white; border-radius: 30px; padding: 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; border: 4px solid var(--ink); box-shadow: 10px 10px 0 var(--red-dark); }
+.band { background: linear-gradient(135deg, rgba(16,18,23,.94), rgba(29,36,48,.78)), url("../assets/photos/laden.jpg"); background-size: cover; background-position: center; color: white; border-radius: 30px; padding: 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; border: 4px solid var(--ink); box-shadow: 10px 10px 0 var(--red-dark); }
 .band .card { color: var(--ink); background: rgba(255,246,217,.92); backdrop-filter: blur(3px); }
 .social-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 24px; align-items: center; }
 .social-card { background: white; }
@@ -100,7 +100,7 @@ h3 { margin-top: 0; font-size: 1.35rem; line-height: 1.08; }
 .mini-wall div:nth-child(2), .mini-wall div:nth-child(6) { background: var(--blue); color: var(--ink); }
 .mini-wall div:nth-child(3), .mini-wall div:nth-child(4) { background: white; color: var(--ink); }
 .profile-card { overflow: hidden; background: white; border: 4px solid var(--ink); border-radius: 28px; box-shadow: 10px 10px 0 var(--blue); transform: rotate(1deg); }
-.profile-photo { min-height: 330px; background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12)), url("/assets/photos/pierre.jpeg"); background-size: cover; background-position: center 28%; border-bottom: 4px solid var(--ink); }
+.profile-photo { min-height: 330px; background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12)), url("../assets/photos/pierre.jpeg"); background-size: cover; background-position: center 28%; border-bottom: 4px solid var(--ink); }
 .profile-content { padding: 24px; }
 .profile-content h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 12px; letter-spacing: -.045em; }
 .profile-content p { color: var(--muted); font-weight: 700; }
