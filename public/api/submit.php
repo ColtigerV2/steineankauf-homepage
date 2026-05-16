@@ -41,13 +41,19 @@ $beschreibung = clean('beschreibung', 4000);
 $uebergabe = clean('uebergabe', 80);
 $pakete = clean('pakete', 80);
 $agb = clean('agb', 20);
+$submittedCaseId = clean('case_id', 40);
 
 if ($name === '' || $email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
   http_response_code(400);
   exit('Bitte Name und gueltige E-Mail angeben.');
 }
 
-$caseId = 'SA-' . date('Ymd-Hi');
+if (preg_match('/^SA-[0-9]{8}-[0-9]{4}$/', $submittedCaseId)) {
+  $caseId = $submittedCaseId;
+} else {
+  $caseId = 'SA-' . date('Ymd-Hi');
+}
+
 $to = 'info@steine-ankauf.de';
 $subject = 'Neue Ankauf-Anfrage ' . $caseId . ' ueber steine-ankauf.de';
 
