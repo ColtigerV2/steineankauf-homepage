@@ -15,9 +15,9 @@ const canonicalUrl = new URL(cleanCanonical, baseUrl).toString();
 const imageUrl = new URL(cleanImage, baseUrl).toString();
 const asset = (path) => `${basePath}${String(path).replace(/^\/+/, '')}`;
 const photoVars = `
-  --photo-steine: url('https://ucf7b7f84c68edad5eee97a7a1b5.previews.dropboxusercontent.com/p/thumb/ADA3jI8mTrcTXGei1wiOtqx6B5Yvdzo_j1hGLMBe8OWSa4mNXwilebk-_L3OXFECKNPErfE9EVUKp129-AQJxmJl7OylZoBL6i8CLNScoQgr0YyC12IvgdbLWByrxb5bsCekwDH9Q70Dx8n8j17F988YIdAXfv2G4Cwx5bNaSV06zvcJT4j8UTaJa5hjP6i1xhQuMf5prwhIiuhdN7nbaF6h9yCl-JXs_CGJzoB8D9o_BvMgmAI2LIw369OOwNMdzQK9YmaQm7P3Rr5hfG04IXIldsheihIuXQwYA1Vj3INCC_5PNo2poPbElp_fYzn3MhI/p.jpeg');
-  --photo-laden: url('https://uc0c0b9a87206c02e76074e28666.previews.dropboxusercontent.com/p/thumb/ADAEWBPSWtlk11aV7wht_qfdH78rS0dB70APt7CivXsKXxpNcBKnTdrONf8qK12So9mSnd6FBVW21uMPL7wRYf-mrS0G2lFQgL6lp7F-q42P1j4rpWmgMx4NSKv41cO3_Vcsc-X8jplHkjsx91vexga7annPqo997xunp9pdSzPcXsT0-oOg41T1eDN0tqdyvHShHjfYiCfrmnNPOUKda0ti0HmOS0nuJfO8J8fbKSIlsBB9ApZD6jtj7n9dP40hd9eNxCV0aZaMWjIRInu9r4jXTpbKb4t__bi7S9MohnRyipZpOcZ8KhL-1A2tqDw1I2Y/p.jpeg');
-  --photo-pierre: url('https://ucf8a72a3c661c76b4dc3e1eaf83.previews.dropboxusercontent.com/p/thumb/ADDU53swlYZRW-dYlPElEMZDaDj4XEDtSrlRVrup8mJDMOU_fCgwE-OFs1OkfkiAJSnO6RmtAyUpi3Giqnuihj8Kx7d6rCpB3xXGQYOtXPO1yLT9BD-MY5fYWtdR3llwynx4WduEBDjkGpzIGIYn8aflhn1i2wkyJaD6Li4ze46PzBAn7-eqFhhWZ4VvZy2xz86J2jIX3OHovWC1gEYtVeFSPpgr1xHaFvJgl9a5sQ1d8wyPHVRZCvjK_FECDeInTsuT78fNBj9Z6g8piUutBg9HxmJgDTv0fETsdRZL3twunQ3Q6oC2RM1CWF6o5wHOJo0/p.jpeg');
+  --photo-steine: url('${asset('assets/photos/steine.jpg')}');
+  --photo-laden: url('${asset('assets/photos/laden.jpg')}');
+  --photo-pierre: url('${asset('assets/photos/pierre.jpeg')}');
 `;
 ---
 <!doctype html>
