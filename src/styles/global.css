@@ -99,6 +99,11 @@ h3 { margin-top: 0; font-size: 1.35rem; line-height: 1.08; }
 .mini-wall div:nth-child(1), .mini-wall div:nth-child(5) { background: var(--red); color: white; }
 .mini-wall div:nth-child(2), .mini-wall div:nth-child(6) { background: var(--blue); color: var(--ink); }
 .mini-wall div:nth-child(3), .mini-wall div:nth-child(4) { background: white; color: var(--ink); }
+.profile-card { overflow: hidden; background: white; border: 4px solid var(--ink); border-radius: 28px; box-shadow: 10px 10px 0 var(--blue); transform: rotate(1deg); }
+.profile-photo { min-height: 330px; background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12)), url("https://www.dropbox.com/scl/fi/quz77oqbcvjp3y1tfbrv1/Pierre.jpeg?rlkey=g2h4ptrrz8m5w0kuiudiinrt3&raw=1"); background-size: cover; background-position: center 28%; border-bottom: 4px solid var(--ink); }
+.profile-content { padding: 24px; }
+.profile-content h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 12px; letter-spacing: -.045em; }
+.profile-content p { color: var(--muted); font-weight: 700; }
 .form-wrap { display: grid; grid-template-columns: .86fr 1fr; gap: 28px; align-items: start; }
 .form { background: white; border: 4px solid var(--ink); border-radius: 28px; padding: 24px; box-shadow: 10px 10px 0 var(--blue-dark); }
 .form fieldset { border: 3px solid #d9e2ef; border-radius: 20px; padding: 18px; margin: 0 0 18px; background: #fffdf7; }
@@ -150,8 +155,9 @@ textarea { min-height: 130px; resize: vertical; }
   .checks, .row { grid-template-columns: 1fr; }
   h1 { font-size: clamp(2.4rem, 14vw, 4.2rem); }
   .section-head { display: block; }
-  .card, .grid-4 .card:nth-child(n), .grid-3 .card:nth-child(n), .hero-panel { transform: none; }
+  .card, .grid-4 .card:nth-child(n), .grid-3 .card:nth-child(n), .hero-panel, .profile-card { transform: none; }
   .hero-panel { min-height: 360px; }
+  .profile-photo { min-height: 280px; }
   .btn { width: 100%; }
   .price-card { display: block; }
   .price-card span { display: block; margin-top: 12px; }
