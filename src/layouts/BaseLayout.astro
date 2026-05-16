@@ -3,12 +3,17 @@ import '../styles/global.css';
 const {
   title = 'Steine-Ankauf.de',
   description = 'LEGO und DUPLO verkaufen: schnell, fair und unkompliziert.',
-  canonical = '/',
-  image = '/og-image.svg'
+  canonical = '',
+  image = 'og-image.svg'
 } = Astro.props;
 const siteUrl = Astro.site ?? new URL('https://www.steine-ankauf.de');
-const canonicalUrl = new URL(canonical, siteUrl).toString();
-const imageUrl = new URL(image, siteUrl).toString();
+const basePath = import.meta.env.BASE_URL;
+const baseUrl = new URL(basePath, siteUrl);
+const cleanCanonical = String(canonical).replace(/^\/+/, '');
+const cleanImage = String(image).replace(/^\/+/, '');
+const canonicalUrl = new URL(cleanCanonical, baseUrl).toString();
+const imageUrl = new URL(cleanImage, baseUrl).toString();
+const asset = (path) => `${basePath}${String(path).replace(/^\/+/, '')}`;
 ---
 <!doctype html>
 <html lang="de">
@@ -19,8 +24,8 @@ const imageUrl = new URL(image, siteUrl).toString();
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" href={asset('favicon.svg')} type="image/svg+xml" />
+    <link rel="manifest" href={asset('site.webmanifest')} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="Steine-Ankauf.de" />
