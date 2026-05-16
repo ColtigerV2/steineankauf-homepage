@@ -1,0 +1,16 @@
+{
+  "name": "Steine-Ankauf.de",
+  "short_name": "Steine-Ankauf",
+  "description": "LEGO und DUPLO verkaufen: schnell, fair und unkompliziert.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff0a8",
+  "theme_color": "#f2cd37",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
