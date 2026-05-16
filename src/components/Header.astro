@@ -1,7 +1,11 @@
+---
+const basePath = import.meta.env.BASE_URL;
+const asset = (path) => `${basePath}${String(path).replace(/^\/+/, '')}`;
+---
 <header class="header">
   <div class="container nav">
     <a href="#top" class="logo-image" aria-label="Steine-Ankauf Startseite">
-      <img src="assets/steine-ankauf-logo.svg" alt="Steine-Ankauf.de" />
+      <img src={asset('assets/steine-ankauf-logo.svg')} alt="Steine-Ankauf.de" />
     </a>
     <nav class="navlinks" aria-label="Hauptnavigation">
       <a href="#ablauf">Ablauf</a>
