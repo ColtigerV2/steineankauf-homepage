@@ -4,24 +4,24 @@ import Header from '../../components/Header.astro';
 ---
 <BaseLayout title="Danke für deine Anfrage | Steine-Ankauf.de" description="Deine Ankauf-Anfrage wurde vorbereitet. Bitte drucke den Begleitschein und lege ihn oben ins Paket.">
   <Header />
-  <main class="thankyou-page">
+  <main id="main-content" class="thankyou-page">
     <section class="hero brick-bg">
       <div class="container thankyou-box">
-        <span class="eyebrow">Anfrage vorbereitet</span>
-        <h1>Danke! Deine Anfrage ist angekommen.</h1>
-        <p class="lead">Bitte drucke den Begleitschein aus und lege ihn oben in dein Paket. So kann Pierre deine Sendung schnell zuordnen.</p>
+        <span class="eyebrow">Begleitschein & Vorgang</span>
+        <h1>Deine Ankauf-Anfrage</h1>
+        <p class="lead">Der erfolgreiche Versand wird direkt im Formular bestätigt. Drucke dort den Begleitschein aus und lege ihn unterschrieben oben ins Paket. Diese Informationsseite allein bestätigt keinen Anfrageeingang.</p>
         <div class="thankyou-card">
           <h2>Deine nächsten Schritte</h2>
           <ol>
-            <li>Begleitschein ausdrucken oder die Vorgangsnummer notieren.</li>
+            <li>Zum ausgefüllten Formular zurückkehren und den vollständigen Begleitschein drucken.</li>
             <li>LEGO®, DUPLO® oder Sammlung sicher verpacken.</li>
             <li>Begleitschein oben ins Paket legen.</li>
-            <li>Paket versenden oder nach Absprache im Laden abgeben.</li>
+            <li>Pakete an Im Winkel 4, 51399 Burscheid senden. Ladenabgabe: Hauptstraße 58, nach Absprache. Besondere Bestände vorher anfragen.</li>
           </ol>
           <p class="case-note"><strong>Vorgangsnummer:</strong> <span id="caseOutput">wird geladen …</span></p>
         </div>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="/">Zur Startseite</a>
+          <a class="btn btn-primary" href={import.meta.env.BASE_URL}>Zur Startseite</a>
           <button class="btn btn-secondary" type="button" onclick="window.print()">Diese Seite drucken</button>
         </div>
       </div>
@@ -33,3 +33,4 @@ import Header from '../../components/Header.astro';
     document.querySelector('#caseOutput').textContent = vorgang || 'nicht übermittelt';
   </script>
 </BaseLayout>
+

@@ -2,7 +2,7 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, codex/homepage-update]
   workflow_dispatch:
 
 permissions:
@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAGES: 'true'
+      ASTRO_TELEMETRY_DISABLED: '1'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
     steps:
       - name: Checkout
@@ -35,15 +36,49 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Setup PHP and Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, openssl
+          tools: composer:v2
+
+      - name: Install SMTP library
+        run: composer install --no-dev --prefer-dist --no-interaction
+
+      - name: Check PHP syntax
+        run: find public/api -maxdepth 1 -name '*.php' -print0 | xargs -0 -n1 php -l
+
       - name: Build site
         run: npm run build
+
+      - name: Test preview and form handler without sending email
+        run: npm test
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
+      - name: Build production release
+        env:
+          GITHUB_PAGES: 'false'
+        run: npm run build
+
+      - name: Test production URLs
+        env:
+          GITHUB_PAGES: 'false'
+        run: npm test
+
+      - name: Upload all-inkl release
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-inkl-release
+          path: dist/
+          include-hidden-files: true
+
   deploy:
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -55,3 +90,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

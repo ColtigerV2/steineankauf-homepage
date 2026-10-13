@@ -9,15 +9,16 @@ Diese Checkliste ist fuer den Umzug von GitHub Pages auf all-inkl gedacht.
 - [ ] Telefonnummer ergaenzen oder bewusst weglassen
 - [ ] USt-ID / Rechtsform / Kleinunternehmer-Hinweis pruefen
 - [ ] Ankaufpreise final von Pierre bestaetigen lassen
-- [ ] Ziel-Mailadresse im PHP-Handler pruefen: `public/api/submit.php`
-- [ ] Absenderadresse pruefen: `no-reply@steine-ankauf.de`
-- [ ] Social-Links final ergaenzen, falls gewuenscht
+- [ ] SMTP-Konfiguration und Zieladresse pruefen: `public/api/submit.php`
+- [ ] SMTP-Absender passend zum tatsächlichen Postfach konfigurieren (private Konfiguration)
+- [ ] Shop-, Presse- und Social-Links prüfen
 - [ ] Bilder lokal im Build vorhanden: `public/assets/photos/`
 
 ## 2. Build lokal oder per GitHub Actions erzeugen
 
 ```bash
 npm install
+composer install --no-dev --prefer-dist
 npm run build
 ```
 
@@ -75,7 +76,7 @@ Beschreibung: Go-live Test, bitte ignorieren
 
 Erwartung:
 
-- Mail kommt bei `info@steine-ankauf.de` an
+- Mail kommt bei `service@steine-ankauf.de` an
 - Reply-To zeigt auf die eingegebene Kundenmail
 - Vorgangsnummer ist im Betreff und auf Danke-Seite sichtbar
 
@@ -86,3 +87,14 @@ Erwartung:
 - [ ] alte Baukasten-Seite sichern
 - [ ] alte Dateien nicht sofort loeschen, sondern Backup behalten
 - [ ] nach 24h Formular nochmal testen
+
+
+## Ergänzungen zum Relaunch
+
+- [ ] docs/relaunch-abstimmung.md mit Pierre durchgehen
+- [ ] SMTP-Konfiguration außerhalb des Webroots anlegen
+- [ ] Bestätigungs-E-Mail ohne Zahlungsdaten prüfen
+- [ ] Alte .html-URLs und den historischen PDF-Link testen
+- [ ] Private Rate-Dateien regelmäßig bereinigen
+- [ ] Mobile Navigation, Tastaturbedienung und Begleitschein prüfen
+- [ ] PageSpeed und Search Console nach Domainwechsel prüfen

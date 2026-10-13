@@ -6,5 +6,7 @@ const isPages = process.env.GITHUB_PAGES === 'true';
 export default defineConfig({
   site: isPages ? 'https://coltigerv2.github.io' : 'https://www.steine-ankauf.de',
   base: isPages ? '/steineankauf-homepage/' : '/',
+  trailingSlash: 'always',
   integrations: [sitemap()],
 });
+

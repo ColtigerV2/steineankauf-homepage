@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+const base = import.meta.env.BASE_URL;
+const page = (p) => base + p;
+const isPreview = import.meta.env.GITHUB_PAGES === 'true';
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -9,28 +12,31 @@ const localBusinessSchema = {
   url: 'https://www.steine-ankauf.de',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Im Winkel 4',
+    streetAddress: 'Hauptstraße 58',
     postalCode: '51399',
     addressLocality: 'Burscheid',
     addressCountry: 'DE'
   },
+  telephone: '+4921747913207',
+  openingHours: 'Sa 09:00-14:00',
   founder: 'Pierre-Pascal Hauer',
   areaServed: 'Deutschland'
 };
 ---
 <BaseLayout title="LEGO verkaufen | Steine-Ankauf.de" description="LEGO, DUPLO und Klemmbausteine verkaufen: online anmelden, Begleitschein drucken, einsenden oder im Laden abgeben.">
   <Header />
-  <main id="top">
+  <main id="main-content"><span id="top"></span>
     <section class="hero brick-bg">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">Brickstore-Feeling · Ankauf per Versand oder Ladenabgabe</span>
+          <span class="eyebrow">Ankauf per Versand oder Ladenabgabe</span>
           <h1>LEGO® & DUPLO® verkaufen – <span class="marker">einfach, fair, persönlich.</span></h1>
-          <p class="lead">Ob Kinderzimmersammlung, Kiloware, Sets, Bauanleitungen oder Kartons: Wir machen den Verkauf unkompliziert. Online anmelden, Begleitschein ausdrucken, Paket beilegen – fertig.</p>
+          <p class="lead">Ob Kinderzimmersammlung, Kiloware, Sets, Bauanleitungen oder Kartons: Wir machen den Verkauf unkompliziert. Anfrage ausfüllen, Begleitschein drucken und oben ins Paket legen. Für besondere Sammlungen klären wir den Ankauf vorher persönlich.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#formular">Ankauf starten</a>
-            <a class="btn btn-secondary" href="#ablauf">So funktioniert's</a>
+            <a class="btn btn-secondary" href="#laden">Laden besuchen</a>
           </div>
+          <p class="hero-price"><strong>LEGO® Kiloware: 6,00 €/kg</strong> · Versand auf deine Kosten. <a href="#preise">Preise & Bedingungen</a></p>
           <div class="checks" aria-label="Vorteile">
             <div class="check">✓ Festpreis-Orientierung</div>
             <div class="check">✓ Echter Laden in Burscheid</div>
@@ -60,9 +66,9 @@ const localBusinessSchema = {
         </div>
         <div class="grid-4">
           <article class="card"><div class="step-number">1</div><h3>Ware grob beschreiben</h3><p>Was ist dabei? Kiloware, Sets, DUPLO, Figuren, Bauanleitungen oder Kartons.</p></article>
-          <article class="card"><div class="step-number">2</div><h3>Online anmelden</h3><p>Kontaktdaten und kurze Beschreibung eintragen. Fotos helfen bei größeren Sammlungen.</p></article>
+          <article class="card"><div class="step-number">2</div><h3>Online anmelden</h3><p>Kontaktdaten und kurze Beschreibung eintragen. Bei größeren oder besonderen Sammlungen bitte vor dem Versand Kontakt aufnehmen.</p></article>
           <article class="card"><div class="step-number">3</div><h3>Begleitschein drucken</h3><p>Der Zettel kommt oben ins Paket. So kann Pierre die Ware sofort zuordnen.</p></article>
-          <article class="card"><div class="step-number">4</div><h3>Auszahlung erhalten</h3><p>Nach Prüfung erfolgt die Auszahlung per PayPal oder Banküberweisung.</p></article>
+          <article class="card"><div class="step-number">4</div><h3>Auszahlung erhalten</h3><p>Nach Prüfung erfolgt die Auszahlung per PayPal oder Banküberweisung, in der Regel binnen 1–3 Tagen nach Eingang, je nach Auftragsvolumen.</p></article>
         </div>
       </div>
     </section>
@@ -73,7 +79,7 @@ const localBusinessSchema = {
           <span class="eyebrow">Richtwerte für Kinderzimmersammlungen</span>
           <h2>Klare Preise statt Rätselraten.</h2>
           <p class="lead">Für typische Sammlungen arbeiten wir mit einfachen Richtwerten. Größere Händlerposten, stark selektierte Bestände oder besondere Sammlerstücke werden individuell bewertet.</p>
-          <p class="muted">Hinweis: Preise vor Go-live final von Pierre bestätigen lassen.</p>
+          <p>DUPLO® und besondere Bestände: Preis bitte vor dem Versand erfragen. Die Richtwerte gelten für typische Kinderzimmersammlungen; die Ware wird nach Eingang geprüft.</p><p><a class="text-link" href={page("ankaufbedingungen/")}>Vollständige Ankaufbedingungen lesen</a></p>
         </div>
         <div class="price-cards">
           <article class="price-card red-card"><strong>LEGO® Kiloware</strong><span>6,00 € / kg</span></article>
@@ -111,7 +117,7 @@ const localBusinessSchema = {
           <div class="rule">Sie sollten sauber und frei von Fremdteilen sein.</div>
           <div class="rule">Aufgebaute Sachen müssen nicht zerlegt werden.</div>
           <div class="rule">Packe lieber wenige große Kartons statt viele kleine.</div>
-          <div class="rule">Begleitschein bitte oben ins Paket legen.</div>
+          <div class="rule">Begleitschein bitte unterschreiben und oben ins Paket legen.</div><div class="rule">Du trägst die Versandkosten.</div><div class="rule">Besondere oder selektierte Bestände vorher anfragen.</div>
         </div>
       </div>
     </section>
@@ -121,7 +127,7 @@ const localBusinessSchema = {
         <div>
           <h2>Echter Laden. Echter Ansprechpartner.</h2>
           <p>Steine-Ankauf ist kein anonymes Portal. Hinter der Seite steht ein Laden in Burscheid und ein Team, das sich täglich mit LEGO®, gebrauchten Sets und Sammlungen beschäftigt.</p>
-          <p><strong>Adresse:</strong><br />STEINE-ANKAUF.de<br />Pierre-Pascal Hauer<br />Im Winkel 4<br />51399 Burscheid</p>
+          <p><strong>Laden & persönliche Abgabe:</strong><br />Hauptstraße 58 · 51399 Burscheid<br /><strong>Samstags 9–14 Uhr</strong>, weitere Termine auf Anfrage.</p><p><strong>Adresse für Pakete:</strong><br />STEINE-ANKAUF.de · Pierre-Pascal Hauer<br />Im Winkel 4 · 51399 Burscheid</p><p>Einzelteile bitte vorab im Onlineshop bestellen. Im Laden können wir keine Fehlteile heraussuchen. Bei Abgabe gibt es keine sofortige Barauszahlung.</p><p><a class="text-link" href="tel:+4921747913207">02174 7913207</a> · <a class="text-link" href="mailto:service@steine-ankauf.de">service@steine-ankauf.de</a></p>
         </div>
         <div class="card">
           <h3>Warum das wichtig ist</h3>
@@ -133,7 +139,7 @@ const localBusinessSchema = {
 
     <section class="social-section white-section">
       <div class="container social-grid">
-        <div class="card social-card"><span class="social-badge">TikTok · Instagram · Ladenalltag</span><h2>Hier werden Steine wirklich gelebt.</h2><p>Pierre zeigt online regelmäßig Laden, Sortierung, Ankäufe und Sammlerstücke. Genau diese Echtheit gehört auf die Seite: nicht nur Ankauf, sondern echte Brick-Community.</p></div>
+        <div class="card social-card"><span class="social-badge">TikTok · Instagram · Ladenalltag</span><h2>Hier werden Steine wirklich gelebt.</h2><p>Pierre zeigt online regelmäßig Laden, Sortierung, Ankäufe und Sammlerstücke. Entdecke die Brick-Community und den Alltag hinter den Kulissen.</p><div class="link-list"><a href="https://www.tiktok.com/@steineankauf">TikTok</a><a href="https://www.instagram.com/steineankauf/">Instagram</a><a href="https://www.facebook.com/steine.ankauf/">Facebook</a></div></div>
         <article class="profile-card" aria-label="Pierre-Pascal Hauer">
           <div class="profile-photo" role="img" aria-label="Pierre-Pascal Hauer von Steine-Ankauf.de"></div>
           <div class="profile-content">
@@ -145,19 +151,21 @@ const localBusinessSchema = {
       </div>
     </section>
 
+<section id="shop"><div class="container"><div class="section-head"><h2>Steine kaufen & uns kennenlernen</h2></div><div class="grid-3"><article class="card"><h3>Unsere Onlineshops</h3><p>Ersatzteile, Minifiguren und seltene Steine findest du bei BrickLink, eBay und Whatnot.</p><a class="text-link" href={page("shop/")}>Zu den Shops</a></article><article class="card"><h3>Aus der Presse</h3><p>WDR, Radio Berg und die regionale Presse haben über unseren Laden berichtet.</p><a class="text-link" href={page("presse/")}>Berichte ansehen</a></article><article class="card"><h3>Unser Team</h3><p>Hinter dem Ankauf stehen Menschen für Sortierung, Versand, Lager und Kundenkontakt.</p><a class="text-link" href={page("team/")}>Team kennenlernen</a></article></div></div></section>
     <section id="formular" class="white-section">
       <div class="container form-wrap">
         <div>
           <h2>Ankauf starten</h2>
-          <p class="lead">Fülle die Anfrage aus. Danach kannst du direkt einen Begleitschein für dein Paket drucken.</p>
+          <p class="lead">Fülle die Anfrage aus. Drucke den Begleitschein vor dem Absenden und lege ihn unterschrieben ins Paket. Besondere Sammlungen bitte erst nach persönlicher Rücksprache versenden.</p>
           <div class="form-steps">
             <div><strong>1.</strong> Anfrage ausfüllen</div>
             <div><strong>2.</strong> Begleitschein drucken</div>
             <div><strong>3.</strong> Paket beilegen</div>
           </div>
-          <div class="notice"><strong>Preview-Hinweis:</strong> Auf GitHub Pages wird keine E-Mail gesendet. Du kannst aber Formular und Begleitschein vollständig testen.</div>
+          {isPreview && <div class="notice"><strong>Vorschau:</strong> Es wird keine Anfrage versendet. Du kannst das Formular und den Begleitschein testen.</div>}<p>Fotos kannst du mit deiner Beschreibung an <a class="text-link" href="mailto:service@steine-ankauf.de">service@steine-ankauf.de</a> senden. Gib bei einer bestehenden Anfrage die Vorgangsnummer an.</p><p><a class="text-link" href={page("ankaufbedingungen/")}>Ankaufbedingungen & PDF zum handschriftlichen Ausfüllen</a></p>
         </div>
-        <form class="form" id="ankaufForm" method="post" action="/api/submit.php">
+        <noscript><p>Für das Onlineformular benötigst du JavaScript. Alternativ kannst du das <a href={page("file/a/97570cf8b17157022.pdf")}>Ankauf-PDF</a> ausfüllen.</p></noscript>
+        <form class="form" id="ankaufForm" method="post" action={page("api/submit.php")}>
           <input type="hidden" id="caseInput" name="case_id" value="" />
           <div class="honeypot" aria-hidden="true">
             <label for="website">Website</label>
@@ -182,9 +190,9 @@ const localBusinessSchema = {
             <div class="row"><div><label for="uebergabe">Versand oder Abgabe?</label><select id="uebergabe" name="uebergabe"><option>Versand</option><option>Ladenabgabe</option><option>Noch offen</option></select></div><div><label for="pakete">Anzahl Pakete optional</label><input id="pakete" name="pakete" placeholder="z. B. 2" /></div></div>
           </fieldset>
 
-          <label class="checkline"><input type="checkbox" name="agb" value="ja" required /> Ich bin mindestens 18 Jahre alt und akzeptiere die Ankaufbedingungen.</label>
-          <div class="hero-actions"><button class="btn btn-primary" type="submit">Anfrage vorbereiten</button><button class="btn btn-secondary" type="button" id="printSlip">Begleitschein drucken</button></div>
-          <p class="form-note">Tipp: Für den Versand den Begleitschein nach dem Ausfüllen drucken und oben ins Paket legen.</p>
+          <label class="checkline"><input type="checkbox" name="agb" value="ja" required /> <span>Ich bin mindestens 18 Jahre alt und akzeptiere die <a class="text-link" href={page("ankaufbedingungen/")}>Ankaufbedingungen</a>.</span></label>
+          <div class="hero-actions"><button class="btn btn-primary" type="submit">{isPreview ? "Anfrage testen" : "Anfrage absenden"}</button><button class="btn btn-secondary" type="button" id="printSlip">Begleitschein drucken</button></div>
+          <p class="form-note">Informationen zur Verarbeitung deiner Angaben findest du im <a class="text-link" href={page("datenschutz/")}>Datenschutz</a>.</p><p class="form-note">Tipp: Für den Versand den Begleitschein nach dem Ausfüllen drucken und oben ins Paket legen.</p>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -208,6 +216,8 @@ const localBusinessSchema = {
         <details><summary>Müssen aufgebaute Sets zerlegt werden?</summary><p>Nein. Aufgebaute Sachen müssen nicht extra auseinandergenommen werden.</p></details>
         <details><summary>Wie soll ich die Ware versenden?</summary><p>Am besten in wenige größere Kartons packen. Den ausgedruckten Begleitschein bitte oben ins Paket legen.</p></details>
         <details><summary>Kann ich auch persönlich abgeben?</summary><p>Ja, eine Abgabe im Laden bzw. nach Absprache ist möglich.</p></details>
+        <details><summary>Wann erhalte ich mein Geld?</summary><p>In der Regel binnen 1–3 Tagen nach Erhalt oder Abgabe, abhängig vom Auftragsvolumen. Nach Prüfung melden wir uns per E-Mail. Eine sofortige Barauszahlung im Laden ist nicht möglich.</p></details>
+        <details><summary>Wer bezahlt den Versand?</summary><p>Der Versand zu uns erfolgt auf deine Kosten. Bei Fragen zu einem abweichenden Angebot oder einer Rücksendung kläre Ablauf und mögliche Kosten bitte vorab mit uns.</p></details>
         <details><summary>Was passiert bei Händlerposten oder besonderen Sammlungen?</summary><p>Dann bitte vorher eine Anfrage mit Beschreibung und Fotos schicken. Solche Bestände werden individuell bewertet.</p></details>
       </div>
     </section>
@@ -221,7 +231,7 @@ const localBusinessSchema = {
       </div>
       <div>
         <h3>Kontakt</h3>
-        <p>STEINE-ANKAUF.de<br />Pierre-Pascal Hauer<br />Im Winkel 4<br />51399 Burscheid</p>
+        <p>STEINE-ANKAUF.de<br />Pierre-Pascal Hauer<br />Laden: Hauptstraße 58<br />Versand: Im Winkel 4<br />51399 Burscheid<br /><a href="tel:+4921747913207">02174 7913207</a><br /><a href="mailto:service@steine-ankauf.de">service@steine-ankauf.de</a></p>
       </div>
       <div>
         <h3>Navigation</h3>
@@ -229,7 +239,7 @@ const localBusinessSchema = {
       </div>
       <div>
         <h3>Rechtliches</h3>
-        <p><a href="impressum/">Impressum</a><br /><a href="datenschutz/">Datenschutz</a></p>
+        <p><a href={page("impressum/")}>Impressum</a><br /><a href={page("datenschutz/")}>Datenschutz</a><br /><a href={page("ankaufbedingungen/")}>Ankaufbedingungen</a><br /><a href={page("jobs/")}>Jobs</a><br /><a href={page("links/")}>Weitere Links</a></p>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -270,7 +280,7 @@ const localBusinessSchema = {
   </div>
 
   <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
-  <script>
+  <script define:vars={{isPreview}}>
     const form = document.querySelector('#ankaufForm');
     const caseInput = document.querySelector('#caseInput');
     const caseOutput = document.querySelector('#caseId');
@@ -278,7 +288,7 @@ const localBusinessSchema = {
 
     const makeCaseId = () => {
       const now = new Date();
-      return `SA-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
+      return `SA-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}-${Array.from(crypto.getRandomValues(new Uint8Array(16)), (byte) => byte.toString(16).padStart(2, '0')).join('')}`;
     };
 
     const ensureCaseId = () => {
@@ -302,13 +312,30 @@ const localBusinessSchema = {
       window.print();
     });
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
       if (!form.reportValidity()) return;
       fillPrint();
-      if (location.hostname.includes('github.io') || location.hostname === 'localhost') {
-        event.preventDefault();
-        formStatus.textContent = `Demo: Anfrage ${caseInput.value} vorbereitet. Auf all-inkl wird sie per E-Mail an Pierre gesendet. Drucke jetzt den Begleitschein und lege ihn dem Paket bei.`;
+      if (isPreview || ['localhost', '127.0.0.1'].includes(location.hostname)) {
+        formStatus.textContent = 'Demo: Anfrage ' + caseInput.value + ' vorbereitet. Es wurde keine E-Mail versendet. Du kannst den Begleitschein testweise drucken.';
+        return;
+      }
+      const submitButton = form.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      formStatus.textContent = 'Deine Anfrage wird übertragen …';
+      try {
+        const response = await fetch(form.action, {method: 'POST', body: new FormData(form), headers: {'Accept': 'application/json'}});
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.message || 'Die Anfrage konnte nicht übertragen werden.');
+        caseInput.value = result.case_id;
+        fillPrint();
+        formStatus.textContent = result.message + ' Vorgangsnummer: ' + result.case_id + '. Bitte drucke den Begleitschein und lege ihn unterschrieben ins Paket.';
+      } catch (error) {
+        formStatus.textContent = error.message + ' Deine Angaben bleiben erhalten. Versuche es später erneut oder kontaktiere service@steine-ankauf.de.';
+      } finally {
+        submitButton.disabled = false;
       }
     });
   </script>
 </BaseLayout>
+

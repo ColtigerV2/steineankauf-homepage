@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Weitere Links | Steine-Ankauf.de" description="Weitere Links bei Steine-Ankauf.de"><Header /><main id="main-content" class="legal-page"><section><div class="container legal-box"><h1>Weitere Links</h1><div class="legal-card"><p><a href="https://spiele-ankauf.eu/">SPIELE-ANKAUF.eu</a> – unser Angebot für Videospiele, Konsolen und Zubehör.</p><p><a href={base + 'shop/'}>Unsere Shops</a> · <a href="https://www.facebook.com/steine.ankauf/">Facebook</a> · <a href="https://www.instagram.com/steineankauf/">Instagram</a> · <a href="https://www.tiktok.com/@steineankauf">TikTok</a></p></div><div class="hero-actions"><a class="btn btn-primary" href={base}>Zur Startseite</a><a class="btn btn-secondary" href={base + '#formular'}>Ankauf starten</a></div></div></section></main></BaseLayout>

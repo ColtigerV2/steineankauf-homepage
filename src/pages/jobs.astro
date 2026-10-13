@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Jobs & Mitarbeit | Steine-Ankauf.de" description="Jobs & Mitarbeit bei Steine-Ankauf.de"><Header /><main id="main-content" class="legal-page"><section><div class="container legal-box"><h1>Jobs & Mitarbeit</h1><div class="legal-card"><p>Du möchtest unser Team unterstützen? Frage nach aktuellen Möglichkeiten und Aufgaben im Laden, in der Sortierung oder im Versand.</p><p><a href="mailto:service@steine-ankauf.de?subject=Interesse%20an%20Mitarbeit">Kontakt zum Team aufnehmen</a></p></div><div class="hero-actions"><a class="btn btn-primary" href={base}>Zur Startseite</a><a class="btn btn-secondary" href={base + '#formular'}>Ankauf starten</a></div></div></section></main></BaseLayout>

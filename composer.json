@@ -1,0 +1,11 @@
+{
+  "require": {
+    "php": ">=8.2",
+    "ext-mbstring": "*",
+    "ext-openssl": "*",
+    "phpmailer/phpmailer": "^7.0"
+  },
+  "config": {
+    "vendor-dir": "public/api/vendor"
+  }
+}

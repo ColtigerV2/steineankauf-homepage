@@ -36,6 +36,14 @@ AddDefaultCharset utf-8
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Permanent production redirects; GitHub Pages uses generated HTML fallbacks.
+  RewriteRule ^ankauf\.html$ /#ankauf [R=301,L,NE]
+  RewriteRule ^burscheid\.html$ /#laden [R=301,L,NE]
+  RewriteRule ^faq\.html$ /#faq [R=301,L,NE]
+  RewriteRule ^(shop|presse|team|jobs|links|impressum|datenschutz)\.html$ /$1/ [R=301,L]
+  RewriteRule ^datenschutzinformation\.html$ /datenschutz/ [R=301,L]
+  RewriteRule ^index\.htm$ / [R=301,L]
+
   # Keep existing files and folders untouched
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
@@ -48,3 +56,4 @@ AddDefaultCharset utf-8
   # Otherwise show custom 404
   ErrorDocument 404 /404.html
 </IfModule>
+

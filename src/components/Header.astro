@@ -1,19 +1,21 @@
 ---
 const basePath = import.meta.env.BASE_URL;
-const asset = (path) => `${basePath}${String(path).replace(/^\/+/, '')}`;
+const asset = (path) => basePath + String(path).replace(/^\/+/, '');
+const home = basePath;
+const links = [['ablauf','Ablauf'],['preise','Preise'],['ankauf','Ankauf'],['laden','Laden'],['shop','Shops & Presse'],['faq','FAQ']];
 ---
 <header class="header">
   <div class="container nav">
-    <a href="#top" class="logo-image" aria-label="Steine-Ankauf Startseite">
-      <img src={asset('assets/steine-ankauf-logo.svg')} alt="Steine-Ankauf.de" />
+    <a href={home} class="logo-image" aria-label="Steine-Ankauf Startseite">
+      <img src={asset('assets/steine-ankauf-logo.svg')} alt="Steine-Ankauf.de" width="794" height="382" />
     </a>
     <nav class="navlinks" aria-label="Hauptnavigation">
-      <a href="#ablauf">Ablauf</a>
-      <a href="#preise">Preise</a>
-      <a href="#ankauf">Ankauf</a>
-      <a href="#laden">Laden</a>
-      <a href="#faq">FAQ</a>
-      <a href="#formular" class="btn btn-primary">Jetzt verkaufen</a>
+      {links.map(([id,label]) => <a href={home + '#' + id}>{label}</a>)}
     </nav>
+    <a class="btn btn-primary nav-cta" href={home + '#formular'}>Ankauf starten</a>
+    <details class="mobile-menu">
+      <summary>Menü</summary>
+      <nav aria-label="Mobile Navigation">{links.map(([id,label]) => <a href={home + '#' + id}>{label}</a>)}<a href={asset('ankaufbedingungen/')}>Bedingungen</a></nav>
+    </details>
   </div>
 </header>

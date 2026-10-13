@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Unsere Onlineshops | Steine-Ankauf.de" description="Unsere Onlineshops bei Steine-Ankauf.de"><Header /><main id="main-content" class="legal-page"><section><div class="container legal-box"><h1>Unsere Onlineshops</h1><div class="legal-card"><p>Ersatzteile, Minifiguren, Sets und seltene Steine findest du in unseren Shops.</p><div class="link-list"><a href="https://store.bricklink.com/steineankauf?p=steineankauf#/terms">BrickLink-Shop</a><a href="https://www.ebay.de/str/steineankauf">eBay-Shop</a><a href="https://www.whatnot.com/s/0fmSZ1La">Whatnot</a></div><p>Die Links öffnen externe Plattformen. Einzelteilbestellungen bitte online aufgeben; im Laden suchen wir keine Fehlteile heraus.</p></div><div class="hero-actions"><a class="btn btn-primary" href={base}>Zur Startseite</a><a class="btn btn-secondary" href={base + '#formular'}>Ankauf starten</a></div></div></section></main></BaseLayout>

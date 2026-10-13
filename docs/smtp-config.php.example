@@ -1,0 +1,11 @@
+<?php
+// Copy OUTSIDE the public webroot as steine-ankauf-mail.php.
+// Never commit the populated configuration or upload it inside dist/.
+return [
+    'host' => '', // SMTP server supplied by all-inkl
+    'username' => '', // SMTP mailbox username
+    'password' => '', // SMTP mailbox password
+    'from' => '', // Sender mailbox authorised for this SMTP account
+    'rate_dir' => __DIR__ . '/steine-ankauf-rate', // Private writable directory
+    'rate_secret' => '', // Generate at least 32 random bytes, represented as hex
+];

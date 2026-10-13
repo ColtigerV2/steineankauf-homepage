@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Presse | Steine-Ankauf.de" description="Berichte über unseren LEGO-Laden in Burscheid"><Header /><main id="main-content"><section><div class="container legal-box"><h1>Aus der Presse</h1><div class="legal-card"><p>Einblicke in unseren Laden und die Arbeit mit gebrauchten LEGO®-Steinen.</p><ul><li><a href="https://www1.wdr.de/mediathek/audio/wdr5/wdr5-neugier-genuegt-freiflaeche/audio-der-second-hand-lego-laden-100.amp">WDR 5: Der Second-Hand-Lego-Laden</a> · 19.09.2023</li><li><a href="https://youtu.be/DgVyMVh-KT4?t=1458">WDR Lokalzeit Bergisches Land</a> · 16.08.2023</li><li><a href="https://www.rga.de/lokales/bergische-wirtschaft/burscheid-gebrauchtes-lego-ein-buntes-geschaeft-mit-ecken-und-noppen-92329279.html">Remscheider General-Anzeiger: Ein buntes Geschäft mit Ecken und Noppen</a> · 09.06.2023</li></ul><p>Die Links führen zu externen Medienangeboten. Deren Verfügbarkeit und eventuelle Bezahlschranken liegen beim jeweiligen Anbieter.</p></div><div class="hero-actions"><a class="btn btn-primary" href={base}>Zur Startseite</a></div></div></section></main></BaseLayout>

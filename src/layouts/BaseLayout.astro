@@ -3,15 +3,15 @@ import '../styles/global.css';
 const {
   title = 'Steine-Ankauf.de',
   description = 'LEGO und DUPLO verkaufen: schnell, fair und unkompliziert.',
-  canonical = '',
-  image = 'og-image.svg'
+  canonical = Astro.url.pathname,
+  image = 'assets/og-image.png'
 } = Astro.props;
 const siteUrl = Astro.site ?? new URL('https://www.steine-ankauf.de');
 const basePath = import.meta.env.BASE_URL;
 const baseUrl = new URL(basePath, siteUrl);
 const cleanCanonical = String(canonical).replace(/^\/+/, '');
 const cleanImage = String(image).replace(/^\/+/, '');
-const canonicalUrl = new URL(cleanCanonical, baseUrl).toString();
+const canonicalUrl = new URL(canonical || basePath, siteUrl).toString();
 const imageUrl = new URL(cleanImage, baseUrl).toString();
 const asset = (path) => `${basePath}${String(path).replace(/^\/+/, '')}`;
 const photoVars = `
@@ -27,7 +27,7 @@ const photoVars = `
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index,follow" />
+    <meta name="robots" content={import.meta.env.GITHUB_PAGES === "true" || /\/(danke|404)(\/|$)/.test(Astro.url.pathname) ? "noindex,follow" : "index,follow"} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href={asset('favicon.svg')} type="image/svg+xml" />
     <link rel="manifest" href={asset('site.webmanifest')} />
@@ -38,11 +38,13 @@ const photoVars = `
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#f2cd37" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
     <slot />
   </body>
 </html>
+
