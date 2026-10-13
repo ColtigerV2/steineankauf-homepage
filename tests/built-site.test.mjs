@@ -19,6 +19,7 @@ test('Unterseiten, Suchmaschinen-Adressen und alte Links bleiben korrekt',async(
   assert.ok(home.includes('Hauptstraße 58'));
   assert.ok(home.includes('Im Winkel 4'));
   assert.ok(home.includes('content="'+(process.env.GITHUB_PAGES==='true'?'noindex,follow':'index,follow')+'"'));
+  assert.ok(home.includes(process.env.GITHUB_PAGES === 'true' ? 'Anfrage testen' : 'Anfrage absenden'));
   const pdf=await readFile(new URL('../dist/file/a/97570cf8b17157022.pdf',import.meta.url));
   assert.equal(pdf.subarray(0,4).toString(),'%PDF');
   assert.ok((await stat(new URL('../dist/assets/og-image.png',import.meta.url))).size>1000);

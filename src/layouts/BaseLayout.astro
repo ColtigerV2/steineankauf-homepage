@@ -27,7 +27,7 @@ const photoVars = `
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content={import.meta.env.GITHUB_PAGES === "true" || /\/(danke|404)(\/|$)/.test(Astro.url.pathname) ? "noindex,follow" : "index,follow"} />
+    <meta name="robots" content={process.env.GITHUB_PAGES === "true" || /\/(danke|404)(\/|$)/.test(Astro.url.pathname) ? "noindex,follow" : "index,follow"} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href={asset('favicon.svg')} type="image/svg+xml" />
     <link rel="manifest" href={asset('site.webmanifest')} />
