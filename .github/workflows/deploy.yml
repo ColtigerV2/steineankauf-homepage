@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Check dependency security
+        run: npm audit --omit=dev --audit-level=high
+
       - name: Setup PHP and Composer
         uses: shivammathur/setup-php@v2
         with:
@@ -45,6 +48,9 @@ jobs:
 
       - name: Install SMTP library
         run: composer install --no-dev --prefer-dist --no-interaction
+
+      - name: Check SMTP library security
+        run: composer audit --no-interaction
 
       - name: Check PHP syntax
         run: find public/api -maxdepth 1 -name '*.php' -print0 | xargs -0 -n1 php -l
